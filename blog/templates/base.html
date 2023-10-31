@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Django blog</title>
+</head>
+
+    <body>
+        <header>
+            <h1><a href="{% url 'home' %}">Django blog</a></h1>
+        </header>
+    
+        {% if user.is_authenticated %}
+       
+            <p>Hi {{ user.username }}!</p>
+
+            <div>
+                {% block content %}
+                {% endblock content %}
+            </div>
+    
+
+            <p><a href="{% url 'logout' %}">Log out</a></p>
+
+        
+        {% else %}
+            
+            clique aqui para se logar:  <a href = "/accounts/login/" > login</a>
+           
+            
+            <p>sem acesso</p>
+            
+          
+
+        {% endif %}    
+        
+
+    </body>
+    
+</html>
